@@ -12,7 +12,7 @@ export class TeacherDatabase extends BaseDatabase {
         return super.insert(teacher)
     }
 
-    public async updateTeacherClass(labeClass: any, id: string) {
-        return super.update(labeClass, id)
-    }
+    // public async updateTeacherClass(labeClass: any, id: string) {
+    //     return super.update(labeClass, id)
+    // }
 }
