@@ -17,7 +17,7 @@ export class StudentDatabase extends BaseDatabase {
         return super.insert(student)
     }
 
-    public async updateStudentClass(labeClass: any, id: string) {
-        return super.update(labeClass, id)
-    }
+    // public async updateStudentClass(labeClass: any, id: string) {
+    //     return super.update(labeClass, id)
+    // }
 }

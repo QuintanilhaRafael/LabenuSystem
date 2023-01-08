@@ -13,7 +13,7 @@ export class LabeClassDatabase extends BaseDatabase {
     }
     
 
-    public async updateClassModule(module: any, id: string) {
-        return super.update(module, id)
-    }
+    // public async updateClassModule(module: any, id: string) {
+    //     return super.update(module, id)
+    // }
 }
