@@ -1,23 +1,18 @@
-import { Student } from "../models/Student";
+import { Person } from "../models/Person";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class StudentDatabase extends BaseDatabase {
     TABLE_NAME = "Student";
 
-    public async selectStudent(name: string) {
-        const result = await BaseDatabase.connection(
-            this.TABLE_NAME
-        ).select()
-        .where(name);
-
-        return result;
+    public selectStudents() {
+        return super.select()
     }
 
-    public async insertStudent(student: Student) {
+    public insertStudent(student: Person) {
         return super.insert(student)
     }
 
-    // public async updateStudentClass(labeClass: any, id: string) {
-    //     return super.update(labeClass, id)
-    // }
+    public updateStudentClass(student_id: string, class_id: string, updateItem: string) {
+        return super.update(student_id, class_id, updateItem)
+    }
 }

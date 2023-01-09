@@ -4,16 +4,16 @@ import { BaseDatabase } from "./BaseDatabase";
 export class LabeClassDatabase extends BaseDatabase {
     TABLE_NAME = "Class";
 
-    public async selectClasses() {
+    public selectClasses() {
         return super.select()
     }
 
-    public async insertClass(labeClass: LabeClass) {
+    public insertClass(labeClass: LabeClass) {
         return super.insert(labeClass)
     }
     
 
-    // public async updateClassModule(module: any, id: string) {
-    //     return super.update(module, id)
-    // }
+    public updateClassModule(class_id: string, newModule: string, updateItem: string) {
+        return super.update(class_id, newModule, updateItem)
+    }
 }

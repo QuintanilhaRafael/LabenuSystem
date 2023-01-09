@@ -12,12 +12,51 @@ POST http://localhost:3003/student
 Content-Type: application/json
 
 {
-    "name": "Nei",
-    "email": "nei@email.com",
-    "birthDate": "05/04/1995",
-    "labeClass": "Lamarr",
-    "hobbies": ["correr", "malhar", "estudar"]
+    "name": "Regina",
+    "email": "regina@email.com",
+    "birth_date": "06/04/2003",
+    "class_id": "2",
+    "hobbies": ["Ler", "Andar", "Surfar"]
 }
+
+### CREATE TEACHER
+POST http://localhost:3003/teacher
+Content-Type: application/json
+
+{
+    "name": "Valeria",
+    "email": "valeria@email.com",
+    "birth_date": "06/04/1957",
+    "class_id": "2",
+    "specialties": ["JS", "CSS", "REACT"]
+}
+
+### CHANGE MODULE
+PUT http://localhost:3003/classes/2
+Content-Type: application/json
+
+{
+   "newModule": "4"
+}
+
+### CHANGE STUDENT CLASS
+PUT http://localhost:3003/students/1673223229384
+Content-Type: application/json
+
+{
+   "newClassId": "3"
+}
+
+### CHANGE TEACHER CLASS
+PUT http://localhost:3003/teachers/1673224080985
+Content-Type: application/json
+
+{
+   "newClassId": "3"
+}
+
+
+
 
 
 ### GET CLASSES
