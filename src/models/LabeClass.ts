@@ -8,28 +8,5 @@ export class LabeClass {
         this.name = name
         this.module = module
     }
-
-    public getId() {
-        return this.id
-    }
-
-    public getName() {
-        return this.name
-    }
-
-    public getModule() {
-        return this.module
-    }
-
-    public setId(newId: string) {
-        this.id = newId
-    }
-
-    public setName(newName: string) {
-        this.name = newName
-    }
-
-    public setModule(newModule: string) {
-        this.module = newModule
-    }
+    
 }

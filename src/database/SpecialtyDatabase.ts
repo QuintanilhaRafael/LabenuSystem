@@ -3,11 +3,11 @@ import { BaseDatabase } from "./BaseDatabase";
 export class SpecialtyDatabase extends BaseDatabase {
     TABLE_NAME = "Specialty";
 
-    public async selectSpecialty() {
+    public selectSpecialty() {
         return super.select()
     }
 
-    public async insertSpecialty(specialty: string) {
+    public insertSpecialty(specialty: string) {
         return super.insert(specialty)
     }
 

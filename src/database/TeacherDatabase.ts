@@ -1,18 +1,18 @@
-import { Teacher } from "../models/Teacher";
 import { BaseDatabase } from "./BaseDatabase";
+import { Person } from './../models/Person';
 
 export class TeacherDatabase extends BaseDatabase {
     TABLE_NAME = "Teacher";
 
-    public async selectTeachers( ) {
+    public selectTeachers( ) {
         return super.select()
     }
 
-    public async insertTeacher(teacher: Teacher) {
+    public insertTeacher(teacher: Person) {
         return super.insert(teacher)
     }
 
-    // public async updateTeacherClass(labeClass: any, id: string) {
-    //     return super.update(labeClass, id)
-    // }
+    public updateTeacherClass(teacher_id: string, class_id: string, updateItem: string) {
+        return super.update(teacher_id, class_id, updateItem)
+    }
 }

@@ -7,7 +7,7 @@ export const getStudent = async (req: Request, res: Response) => {
         const name = req.query.name as string
         
         const studentDB = new StudentDatabase()
-        const result = await studentDB.selectStudent(name)
+        const result = await studentDB.selectStudents()
 
         res.status(200).send(result)
     } catch (error) {
