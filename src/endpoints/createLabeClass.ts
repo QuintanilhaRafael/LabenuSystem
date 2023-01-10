@@ -6,16 +6,14 @@ export const createLabeClass = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
         const name = req.body.name as string
-        const module = req.body.module as string
 
-        if (!name || !module) {
+        if (!name) {
             throw new Error("Body inválido.")
         }
 
         const labeClass = new LabeClass(
             Date.now().toString(),
-            name,
-            module
+            name
         )
 
         const labeClassDB = new LabeClassDatabase()

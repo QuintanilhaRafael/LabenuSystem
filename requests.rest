@@ -3,8 +3,7 @@ POST http://localhost:3003/class
 Content-Type: application/json
 
 {
-    "name": "Jamison",
-    "module": "0"
+    "name": "Barros"
 }
 
 ### CREATE STUDENT
