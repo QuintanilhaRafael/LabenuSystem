@@ -26,26 +26,46 @@ export const createStudent = async (req: Request, res: Response) => {
             birth_date,
             class_id
         )
-            
+
         const studentDB = new StudentDatabase()
         await studentDB.insert(student)
 
-        let cont : number = 1
+        let cont: number = 1
         hobbies.forEach(async hobby => {
             const hobbyTable = new Hobby(
-                Date.now().toString()+cont,
+                Date.now().toString() + cont,
                 hobby,
-            ) 
-            const studentHobby = new StudentHobby(
-                cont.toString(),
-                student.getId(),
-                Date.now().toString()+cont
             )
-            cont++
+
             const hobbyDB = new HobbyDatabase()
-            await hobbyDB.insert(hobbyTable)
             const studentHobbyDB = new StudentHobbiesDatabase()
-            await studentHobbyDB.insert(studentHobby)
+
+            const getHobbies = await hobbyDB.select()
+
+            const findHobby = getHobbies.find(hobbyTable => {
+                return hobbyTable.name === hobby
+            })
+
+
+            let studentHobby: StudentHobby
+            if (findHobby) {
+                studentHobby = new StudentHobby(
+                    Date.now().toString() + cont * 2,
+                    student.getId(),
+                    findHobby.id
+                )
+                cont++
+                await studentHobbyDB.insert(studentHobby)
+            } else {
+                studentHobby = new StudentHobby(
+                    Date.now().toString() + cont * 2,
+                    student.getId(),
+                    hobbyTable.getId()
+                )
+                cont++
+                await hobbyDB.insert(hobbyTable)
+                await studentHobbyDB.insert(studentHobby)
+            }
 
         });
 

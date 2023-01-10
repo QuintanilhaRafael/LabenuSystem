@@ -4,4 +4,7 @@ export class Hobby {
        private name: string
     ) {}
 
+    public getId() {
+        return this.id
+    }
 }
