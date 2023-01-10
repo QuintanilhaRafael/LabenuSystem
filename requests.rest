@@ -3,7 +3,7 @@ POST http://localhost:3003/class
 Content-Type: application/json
 
 {
-    "name": "Lamarr",
+    "name": "Jamison",
     "module": "0"
 }
 
@@ -12,10 +12,10 @@ POST http://localhost:3003/student
 Content-Type: application/json
 
 {
-    "name": "Regina",
-    "email": "regina@email.com",
-    "birth_date": "06/04/2003",
-    "class_id": "2",
+    "name": "Pedro",
+    "email": "pedro@email.com",
+    "birth_date": "05/04/2003",
+    "class_id": "1673381034100",
     "hobbies": ["Ler", "Andar", "Surfar"]
 }
 
@@ -54,9 +54,6 @@ Content-Type: application/json
 {
    "newClassId": "3"
 }
-
-
-
 
 
 ### GET CLASSES
