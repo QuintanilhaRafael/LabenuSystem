@@ -19,6 +19,18 @@ export const createTeacher = async (req: Request, res: Response) => {
             throw new Error("Body inválido.")
         }
 
+        const checkSpecialty = specialties.find(specialty => {
+            return (specialty.toUpperCase() !== "JS" &&
+                specialty.toUpperCase() !== "CSS" &&
+                specialty.toUpperCase() !== "REACT" &&
+                specialty.toUpperCase() !== "TYPESCRIPT" &&
+                specialty.toUpperCase() !== "POO")
+        })
+
+        if (checkSpecialty) {
+            throw new Error("Favor inserir espcialidades válidas (JS, CSS, React, Typescript ou POO).")
+        }
+
         const teacher = new Person(
             Date.now().toString(),
             name,
@@ -26,25 +38,27 @@ export const createTeacher = async (req: Request, res: Response) => {
             birth_date,
             class_id
         )
-            
+
         const teacherDB = new TeacherDatabase()
         await teacherDB.insert(teacher)
 
-        let cont : number = 1
+        let cont: number = 1
         specialties.forEach(async specialty => {
-            const specialtiesTable = new Specialty(
-                Date.now().toString()+cont,
-                specialty,
-            ) 
+            const specialtyDB = new SpecialtyDatabase()
+            const teacherSpecialtyDB = new TeacherSpecialtiesDatabase()
+
+            const getSpecialties = await specialtyDB.select()
+
+            const findSpecialty = getSpecialties.find(specialtyTable => {
+                return specialtyTable.name.toUpperCase() === specialty.toUpperCase()
+            })
+
             const teacherSpecialty = new TeacherSpecialty(
-                cont.toString(),
+                Date.now().toString() + cont,
                 teacher.getId(),
-                Date.now().toString()+cont
+                findSpecialty.id
             )
             cont++
-            const specialtyDB = new SpecialtyDatabase()
-            await specialtyDB.insert(specialtiesTable)
-            const teacherSpecialtyDB = new TeacherSpecialtiesDatabase()
             await teacherSpecialtyDB.insert(teacherSpecialty)
 
         });
