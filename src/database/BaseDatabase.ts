@@ -30,10 +30,10 @@ export abstract class BaseDatabase {
         await BaseDatabase.connection(this.TABLE_NAME).insert(item);
     }
 
-     public async update(id: string, item: string, updateItem: string) {
-         await BaseDatabase.connection.raw(`
+    public async update(id: string, item: string, updateItem: string) {
+        await BaseDatabase.connection.raw(`
                     UPDATE ${this.TABLE_NAME} SET ${updateItem} = "${item}" WHERE id = ${id}
                 `)
-     }
+    }
 
 }

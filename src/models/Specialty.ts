@@ -3,5 +3,8 @@ export class Specialty {
        private id: string,
        private name: string
     ) {}
-
+    
+    public getId() {
+        return this.id
+    }
 }

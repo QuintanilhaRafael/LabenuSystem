@@ -3,8 +3,7 @@ POST http://localhost:3003/class
 Content-Type: application/json
 
 {
-    "name": "Jamison",
-    "module": "0"
+    "name": "Lamarr"
 }
 
 ### CREATE STUDENT
@@ -12,11 +11,11 @@ POST http://localhost:3003/student
 Content-Type: application/json
 
 {
-    "name": "Pedro",
-    "email": "pedro@email.com",
-    "birth_date": "05/04/2003",
+    "name": "João",
+    "email": "joao@email.com",
+    "birth_date": "05/04/1993",
     "class_id": "1673381034100",
-    "hobbies": ["Ler", "Andar", "Surfar"]
+    "hobbies": ["Viajar", "Correr", "Surfar"]
 }
 
 ### CREATE TEACHER
@@ -24,15 +23,15 @@ POST http://localhost:3003/teacher
 Content-Type: application/json
 
 {
-    "name": "Valeria",
-    "email": "valeria@email.com",
-    "birth_date": "06/04/1957",
-    "class_id": "2",
-    "specialties": ["JS", "CSS", "REACT"]
+    "name": "Carlos",
+    "email": "carlos@email.com",
+    "birth_date": "28/09/1981",
+    "class_id": "1673389942500",
+    "specialties": ["JS", "React"]
 }
 
 ### CHANGE MODULE
-PUT http://localhost:3003/classes/2
+PUT http://localhost:3003/classes/1673389942500
 Content-Type: application/json
 
 {
@@ -40,27 +39,27 @@ Content-Type: application/json
 }
 
 ### CHANGE STUDENT CLASS
-PUT http://localhost:3003/students/1673223229384
+PUT http://localhost:3003/students/1673382814953
 Content-Type: application/json
 
 {
-   "newClassId": "3"
+   "newClassId": "1673389942500"
 }
 
 ### CHANGE TEACHER CLASS
-PUT http://localhost:3003/teachers/1673224080985
+PUT http://localhost:3003/teachers/1673393713688
 Content-Type: application/json
 
 {
-   "newClassId": "3"
+   "newClassId": "1673389942500"
 }
 
 
-### GET CLASSES
+### GET ACTIVE CLASSES
 GET http://localhost:3003/classes
 
 ### GET STUDENT
-GET http://localhost:3003/student
+GET http://localhost:3003/student?name=regina
 
 ### GET TEACHERS
 GET http://localhost:3003/teachers
