@@ -66,3 +66,6 @@ GET http://localhost:3003/teachers?specialty=poo
 
 ### GET PEOPLE FROM CLASS
 GET http://localhost:3003/classes/1673389942500/people
+
+### GET PEOPLE BY SIGN
+GET http://localhost:3003/people/virgo

@@ -6,6 +6,7 @@ import { createLabeClass } from "./endpoints/createLabeClass";
 import { createStudent } from "./endpoints/createStudent";
 import { createTeacher } from "./endpoints/createTeacher";
 import { getActiveClasses } from "./endpoints/getActiveClasses";
+import { getPeopleBySign } from "./endpoints/getPeopleBySign";
 import { getPeopleFromClass } from "./endpoints/getPeopleFromClass";
 import { getStudents } from "./endpoints/getStudents";
 import { getTeachers } from "./endpoints/getTeachers";
@@ -19,6 +20,8 @@ app.post("/teacher", createTeacher);
 app.get("/active_classes", getActiveClasses);
 
 app.get("/classes/:class_id/people", getPeopleFromClass);
+
+app.get("/people/:sign", getPeopleBySign);
 
 app.get("/student", getStudents);
 
