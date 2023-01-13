@@ -10,7 +10,8 @@ export const changeTeacherClass = async (req: Request, res: Response) => {
     const updateItem = "class_id"
 
     if (!newClassId || !teacher_id) {
-        throw new Error("Body inválido.")
+      errorCode = 422
+      throw new Error("Body inválido.")
     }
 
     const teacherDB = new TeacherDatabase()
@@ -21,7 +22,7 @@ export const changeTeacherClass = async (req: Request, res: Response) => {
     )
 
     res.status(201).end()
-} catch (error) {
+  } catch (error) {
     res.status(errorCode).send({ message: error.message })
   }
 }

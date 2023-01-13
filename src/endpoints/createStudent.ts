@@ -16,7 +16,13 @@ export const createStudent = async (req: Request, res: Response) => {
         const hobbies = req.body.hobbies as string[]
 
         if (!name || !email || !birth_date || !class_id || !hobbies) {
+            errorCode = 422
             throw new Error("Body inválido.")
+        }
+
+        if (birth_date.length !== 10 || birth_date[2] !== "/" || birth_date[5] !== "/") {
+            errorCode = 422
+            throw new Error("A data deve ser no formato DD/MM/AAAA");
         }
 
         const student = new Person(
@@ -40,7 +46,7 @@ export const createStudent = async (req: Request, res: Response) => {
             const hobbyDB = new HobbyDatabase()
             const studentHobbyDB = new StudentHobbiesDatabase()
 
-            const getHobbies = await hobbyDB.select()
+            const getHobbies: Hobby[] = await hobbyDB.select()
 
             const findHobby = getHobbies.find(hobbyTable => {
                 return hobbyTable.name === hobby
@@ -51,7 +57,7 @@ export const createStudent = async (req: Request, res: Response) => {
             if (findHobby) {
                 studentHobby = new StudentHobby(
                     Date.now().toString() + cont * 2,
-                    student.getId(),
+                    student.id,
                     findHobby.id
                 )
                 cont++
@@ -59,8 +65,8 @@ export const createStudent = async (req: Request, res: Response) => {
             } else {
                 studentHobby = new StudentHobby(
                     Date.now().toString() + cont * 2,
-                    student.getId(),
-                    hobbyTable.getId()
+                    student.id,
+                    hobbyTable.id
                 )
                 cont++
                 await hobbyDB.insert(hobbyTable)

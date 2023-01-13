@@ -1,5 +1,4 @@
 import { Request, Response } from "express"
-import { LabeClass } from './../models/LabeClass';
 import { LabeClassDatabase } from './../database/LabeClassDatabase';
 
 export const changeClassModule = async (req: Request, res: Response) => {
@@ -9,11 +8,18 @@ export const changeClassModule = async (req: Request, res: Response) => {
     const newModule = req.body.newModule as string
     const updateItem = "module"
 
-    if (!class_id || !newModule) {
+    if (!newModule) {
+      errorCode = 422
       throw new Error("Body inválido.")
     }
 
+    if (!class_id) {
+      errorCode = 422
+      throw new Error("Id não foi informado.")
+    }
+
     if (Number(newModule) > 6 || Number(newModule) < 0 || isNaN(Number(newModule))) {
+      errorCode = 422
       throw new Error("O módulo deve ser de 0 a 6.")
     }
 

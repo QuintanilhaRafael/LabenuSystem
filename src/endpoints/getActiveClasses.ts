@@ -2,18 +2,20 @@ import { Request, Response } from "express"
 import { LabeClassDatabase } from "../database/LabeClassDatabase"
 import { StudentDatabase } from "../database/StudentDatabase"
 import { TeacherDatabase } from "../database/TeacherDatabase"
+import { CompleteLabeClass } from "../models/CompleteLabeClass"
+import { Person } from "../models/Person"
 
 export const getActiveClasses = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
         const labeClassDB = new LabeClassDatabase()
-        const labeClasses = await labeClassDB.selectClasses()
+        const labeClasses: CompleteLabeClass[] = await labeClassDB.selectClasses()
 
         const studentDB = new StudentDatabase()
-        const students = await studentDB.select()
+        const students: Person[] = await studentDB.select()
 
         const teacherDB = new TeacherDatabase()
-        const teachers = await teacherDB.select()
+        const teachers: Person[] = await teacherDB.select()
 
 
         labeClasses.forEach(labeClass => {
@@ -33,7 +35,7 @@ export const getActiveClasses = async (req: Request, res: Response) => {
             })
         })
 
-        res.status(200).send({ labeClasses: labeClasses })
+        res.status(200).send({ labeClasses })
     } catch (error) {
         res.status(errorCode).send({ message: error.message })
     }

@@ -1,8 +1,7 @@
 export class TeacherSpecialty {
     constructor(
-       private id: string,
-       private teacher_id: string,
-       private specialty_id: string
-    ) {}
-
+        public id: string,
+        public teacher_id: string,
+        public specialty_id: string
+    ) { }
 }

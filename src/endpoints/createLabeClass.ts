@@ -8,6 +8,7 @@ export const createLabeClass = async (req: Request, res: Response) => {
         const name = req.body.name as string
 
         if (!name) {
+            errorCode = 422
             throw new Error("Body inválido.")
         }
 

@@ -3,7 +3,6 @@ import { Person } from "../models/Person"
 import { TeacherDatabase } from './../database/TeacherDatabase';
 import { SpecialtyDatabase } from './../database/SpecialtyDatabase';
 import { TeacherSpecialtiesDatabase } from './../database/TeacherSpecialtiesDatabase';
-import { Specialty } from './../models/Specialty';
 import { TeacherSpecialty } from './../models/TeacherSpecialty';
 
 export const createTeacher = async (req: Request, res: Response) => {
@@ -16,7 +15,13 @@ export const createTeacher = async (req: Request, res: Response) => {
         const specialties = req.body.specialties as string[]
 
         if (!name || !email || !birth_date || !class_id || !specialties) {
+            errorCode = 422
             throw new Error("Body inválido.")
+        }
+
+        if (birth_date.length !== 10 || birth_date[2] !== "/" || birth_date[5] !== "/") {
+            errorCode = 422
+            throw new Error("A data deve ser no formato DD/MM/AAAA");
         }
 
         const checkSpecialty = specialties.find(specialty => {
@@ -28,6 +33,7 @@ export const createTeacher = async (req: Request, res: Response) => {
         })
 
         if (checkSpecialty) {
+            errorCode = 422
             throw new Error("Favor inserir espcialidades válidas (JS, CSS, React, Typescript ou POO).")
         }
 
@@ -55,7 +61,7 @@ export const createTeacher = async (req: Request, res: Response) => {
 
             const teacherSpecialty = new TeacherSpecialty(
                 Date.now().toString() + cont,
-                teacher.getId(),
+                teacher.id,
                 findSpecialty.id
             )
             cont++
