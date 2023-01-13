@@ -6,7 +6,7 @@ import { Hobby } from "../models/Hobby"
 import { Student } from "../models/Student"
 import { StudentHobby } from "../models/StudentHobby"
 
-export const getStudent = async (req: Request, res: Response) => {
+export const getStudents = async (req: Request, res: Response) => {
     let errorCode = 400
     try {
         let name = req.query.name as string

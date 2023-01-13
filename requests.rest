@@ -58,7 +58,7 @@ Content-Type: application/json
 ### GET ACTIVE CLASSES
 GET http://localhost:3003/active_classes
 
-### GET STUDENT
+### GET STUDENTS
 GET http://localhost:3003/student?name=regina&?hobby=ler
 
 ### GET TEACHERS
