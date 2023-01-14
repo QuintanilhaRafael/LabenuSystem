@@ -23,7 +23,7 @@ app.get("/classes/:class_id/people", getPeopleFromClass);
 
 app.get("/people/:sign", getPeopleBySign);
 
-app.get("/student", getStudents);
+app.get("/students", getStudents);
 
 app.get("/teachers", getTeachers);
 
