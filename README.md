@@ -57,6 +57,17 @@ https://documenter.getpostman.com/view/22376488/2s8ZDSckcu
 - Caso o usuário queira um estudante com uma nome específico, deve passar o name por query params.
 - Caso o usuário queira um estudante com um hobby específico, deve passar o hobby por query params.
 
+## 📷 Prints do Workbench
+
+![3](https://user-images.githubusercontent.com/102267210/212493071-0ed55beb-8c49-4557-8055-3a26114d42f2.PNG)
+![4](https://user-images.githubusercontent.com/102267210/212493072-b5519478-114b-472e-8f17-c8bf259a39ff.PNG)
+![5](https://user-images.githubusercontent.com/102267210/212493073-cae32a0c-b822-4b6e-91d7-51f4e2ce1870.PNG)
+![6](https://user-images.githubusercontent.com/102267210/212493074-c6071fad-b0f0-4bc0-9021-19e97096a6e7.PNG)
+![7](https://user-images.githubusercontent.com/102267210/212493075-eb80c06a-1f7d-462b-9478-4d4d73696561.PNG)
+![1](https://user-images.githubusercontent.com/102267210/212493077-deb26276-6ec0-4d25-8256-227516fd866f.PNG)
+![2](https://user-images.githubusercontent.com/102267210/212493078-ee1694d0-0446-4e75-9aea-942f7a546739.PNG)
+
+
 ## 👩‍💻 Desenvolvedores:
 
 - João Vitor Gomes Lara Resende.
