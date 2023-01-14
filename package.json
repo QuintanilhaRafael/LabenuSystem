@@ -1,10 +1,10 @@
 {
-  "name": "template-revisao-modulo4",
+  "name": "labenu-system",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/index.js",
+    "start": "tsc && node ./build/index.js",
     "build": "tsc",
     "dev": "ts-node-dev ./src/index.ts",
     "migrations": "tsc && node ./build/database/migrations.js"
