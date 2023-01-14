@@ -1,8 +1,8 @@
 export class StudentHobby {
     constructor(
-       private id: string,
-       private student_id: string,
-       private hobby_id: string
+       public id: string,
+       public student_id: string,
+       public hobby_id: string
     ) {}
 
 }

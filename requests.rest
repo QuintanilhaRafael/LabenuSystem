@@ -56,10 +56,16 @@ Content-Type: application/json
 
 
 ### GET ACTIVE CLASSES
-GET http://localhost:3003/classes
+GET http://localhost:3003/active_classes
 
-### GET STUDENT
-GET http://localhost:3003/student?name=regina
+### GET STUDENTS - ALL / BY NAME / BY HOBBY
+GET http://localhost:3003/students?name=regina&?hobby=ler
 
-### GET TEACHERS
-GET http://localhost:3003/teachers
+### GET TEACHERS - ALL / BY SPECIALTY
+GET http://localhost:3003/teachers?specialty=poo
+
+### GET PEOPLE FROM CLASS
+GET http://localhost:3003/classes/1673389942500/people
+
+### GET PEOPLE BY SIGN
+GET http://localhost:3003/people/aries

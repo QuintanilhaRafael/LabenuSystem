@@ -1,10 +1,6 @@
 export class Specialty {
     constructor(
-       private id: string,
-       private name: string
+        public id: string,
+        public name: string
     ) {}
-    
-    public getId() {
-        return this.id
-    }
 }

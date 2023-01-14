@@ -6,7 +6,9 @@ import { createLabeClass } from "./endpoints/createLabeClass";
 import { createStudent } from "./endpoints/createStudent";
 import { createTeacher } from "./endpoints/createTeacher";
 import { getActiveClasses } from "./endpoints/getActiveClasses";
-import { getStudent } from "./endpoints/getStudent";
+import { getPeopleBySign } from "./endpoints/getPeopleBySign";
+import { getPeopleFromClass } from "./endpoints/getPeopleFromClass";
+import { getStudents } from "./endpoints/getStudents";
 import { getTeachers } from "./endpoints/getTeachers";
 
 app.post("/class", createLabeClass);
@@ -15,9 +17,13 @@ app.post("/student", createStudent);
 
 app.post("/teacher", createTeacher);
 
-app.get("/classes", getActiveClasses);
+app.get("/active_classes", getActiveClasses);
 
-app.get("/student", getStudent);
+app.get("/classes/:class_id/people", getPeopleFromClass);
+
+app.get("/people/:sign", getPeopleBySign);
+
+app.get("/students", getStudents);
 
 app.get("/teachers", getTeachers);
 
